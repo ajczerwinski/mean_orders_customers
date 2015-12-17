@@ -1,0 +1,21 @@
+<a href="#/orders">Orders</a>
+<a href="#/customers">Customers</a>
+
+<h2>Add a new order</h2>
+<form name="ordersForm" action="OrderCtrl.associate()">
+	Customer 
+	<select name="customer">
+		<option ng-repeat="customer in CustCtrl.ctrl_customer" value="{{customer.name}}">{{customer.name}}</option>
+	</select><br>
+	Order <select name="order">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="25">25</option>
+		<option value="50">50</option>
+	</select>
+	<select name="order_name">
+		<option ng-repeat="order in OrderCtrl.ctrl_order" value="{{order.name}}">{{order.name}}</option>
+	</select>
+</form>

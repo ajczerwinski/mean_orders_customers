@@ -1,0 +1,39 @@
+<h2>Add a new customer</h2>
+<a href="#/orders">Go to Orders</a>
+<br><br>
+<form name = "customersForm">
+	Customer Name:<input type="text" name="name" ng-model="CustCtrl.customerInfo.name"
+		ng-minlength = "4"
+		ng-maxlength = "20"
+		required>
+	<br>
+	<button ng-click="CustCtrl.create()" ng-disabled="customersForm.name.$invalid">Add</button>
+</form>
+<div ng-messages="customersForm.name.$error" style="color:maroon" role="alert" ng-show="customersForm.name.$diry">
+	<div ng-message="required">You did not enter a field</div>
+	<div ng-message="minlength">Your field is too short</div>
+	<div ng-message="maxlength">Your field is too long</div>
+</div>
+<div>
+	<input type="text" ng-model="filter_name" placeholder="search name...">
+
+<!-- Customer Info:{{ CustCtrl.customerInfo}}
+<br>
+customer: {{CustCtrl.ctrl_customer }}
+<br> -->
+errors: {{ CustCtrl.errors }}
+<br>
+<div>
+	<table>
+		<thead>
+			<th>Customer Name</th>
+			<th>Created Date</th>
+			<th>Actions</th>
+		</thead>
+		<tr ng-repeat="customer in CustCtrl.ctrl_customer | filter: filter_name">
+			<td>{{customer.name}}</td>
+			<td>{{customer.created_at}}</td>
+			<td><a href ="delete/{{customer._id}}">Remove</a></td>
+		</tr>
+	</table>
+</div>
